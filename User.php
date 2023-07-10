@@ -29,6 +29,7 @@
                 class="form-control" 
                 id="alasanUser" 
                 placeholder="Input NIP">
+                
             </div>
         </div>
   </body>
