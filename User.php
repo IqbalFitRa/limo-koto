@@ -14,21 +14,24 @@
                 <input type="text" 
                 class="form-control" 
                 id="namaUser" 
-                placeholder="Input Nama">
+                placeholder="Input Nama"
+                autocomplete="off">
             </div>
             <div class="mb-3">
                 <label for="nipUser" class="form-label">NIP :</label>
                 <input type="number" 
                 class="form-control" 
                 id="nipUser" 
-                placeholder="Input NIP">
+                placeholder="Input NIP"
+                autocomplete="off">
             </div>
             <div class="mb-3">
                 <label for="alasanUser" class="form-label">Alasan :</label>
                 <input type="text" 
                 class="form-control" 
                 id="alasanUser" 
-                placeholder="Input NIP">
+                placeholder="Input Alasan"
+                autocomplete="off">
             </div>
             <div>
                 <button type="submit"
