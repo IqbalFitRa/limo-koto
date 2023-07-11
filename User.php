@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lima Koto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <style>
+        @media print {
+            .print , .button {
+                display: none;
+            }
+        }
+    </style>
   </head>
   <body>
+    <a href="Print.php" class = "print">Print</a>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <div class="container">
             <div class="mb-3">
@@ -35,7 +45,7 @@
             </div>
             <div>
                 <button type="submit"
-                class ="btn btn-primary">Submit</button>
+                class ="button">Submit</button>
             </div>
         </div>
   </body>
