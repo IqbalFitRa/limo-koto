@@ -74,12 +74,11 @@
             <input type="text" 
             class="form-control" 
             id="alasanUser" 
-            
             name="alasanUser" 
             placeholder="Input Alasan" autocomplete="off">
         </div>
         <div>
-            <button type="submit" class="button">Submit</button>
+            <button type="submit" class="button">Submit</button> | <a href="Print.php" target="_blank">print</a>
         </div>
     </form>
 </div>
