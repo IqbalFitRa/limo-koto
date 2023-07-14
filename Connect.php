@@ -1,10 +1,15 @@
 <?php
 
-$con=new mysqli('localhost','root','','limo-koto');
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'limokoto';
 
-if(!$con){
-    echo "Connection Success";
-}else {
-    die(mysqli_error($con));
+$conn = new mysqli($host, $username, $password, $database);
+
+
+if ($conn->connect_error) {
+    die('Koneksi database gagal: ' . $conn->connect_error);
 }
-?>
+
+
