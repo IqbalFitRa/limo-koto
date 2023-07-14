@@ -1,3 +1,8 @@
+<?php
+
+mysqli_connect("localhost", "root", "", "limokoto")
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
