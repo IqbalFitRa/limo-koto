@@ -1,49 +1,34 @@
 <?php
-session_start();
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'limokoto';
 
-if (isset($_SESSION['username'])) {
-    header("Location: dashboard.php");
-    exit();
+$conn = new mysqli($host, $username, $password, $database);
+
+
+if ($conn->connect_error) {
+    die('Koneksi database gagal: ' . $conn->connect_error);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    include 'connect.php';
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
-    $username = mysqli_real_escape_string($conn, $username);
-    $password = mysqli_real_escape_string($conn, $password);
-
-    $query = "SELECT * FROM admin WHERE username = ? AND password = ?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-    mysqli_stmt_execute($stmt);
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    $row_count = mysqli_num_rows($result);
-
-    if ($row_count == 1) {
-        // Login berhasil
-        $_SESSION['username'] = $username;
-
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        // Login gagal
-        $error_message = "Username atau password salah.";
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        password_verify($password, $row["password"]);
+        {
+            header("Location: index.php");
+            exit();
+        }
+        
     }
-
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'logout') {
-
-    session_unset();
-    session_destroy();
+    $error = true;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-align: center;
             margin-bottom: 20px;
         }
-
         form {
             display: flex;
             flex-direction: column;
@@ -94,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 3px;
             cursor: pointer;
         }
-
         input[type="submit"]:hover {
             background-color: #F08080;
         }
@@ -102,32 +85,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .error {
             color: red;
             margin-top: 10px;
-        }
-    </style>
+        }
+    </style>
+
 </head>
 <body>
     <div class="container">
         <h1>Login Untuk Kepala Jorong</h1>
-
-        <?php if (isset($error_message)): ?>
-            <p class="error"><?php echo $error_message; ?></p>
+        <?php if( isset($error)) : ?> 
+            <p style="color:red; font-style: italic;">Username /password salah</p>
         <?php endif; ?>
 
         <form method="POST" action="">
+
+        <ul>
+            <li style="list-style:none;">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-
+            <input type="text" id="username" name="username">
+        </li>
+        <li style="list-style:none;">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <input type="submit" value="Login">
+            <input type="password" id="password" name="password">
+        </li>
+        <li style="list-style:none;">
+            <button type="submit" name="login">Login</button>
+        </li>
+        </ul>
         </form>
+        <br>
         <form method="GET" action="dashboard.php">
             <input type="submit" value="Warga">
         </form>
-        <?php if (isset($_SESSION['username'])): ?>
-            <a href="?action=logout">Logout</a>
-        <?php endif; ?>
     </div>
 </body>
 </html>
