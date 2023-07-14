@@ -1,10 +1,12 @@
 <?php
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'limokoto';
 
-$con=new mysqli('localhost','root','','limo-koto');
+$conn = new mysqli($host, $username, $password, $database);
 
-if(!$con){
-    echo "Connection Success";
-}else {
-    die(mysqli_error($con));
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
 }
 ?>
