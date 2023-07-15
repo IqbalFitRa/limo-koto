@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
         $row = mysqli_fetch_assoc($result);
         password_verify($password, $row["password"]);
         {
-            header("Location: index.php");
+            header("Location: dashboard_wali.php");
             exit();
         }
         
@@ -78,24 +78,13 @@ if (isset($_POST["login"])) {
             border-radius: 3px;
             cursor: pointer;
         }
-        button[type="submit"] {
-            padding: 10px 20px;
-            background-color: #BC8F8F;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
         input[type="submit"]:hover {
-            background-color: #F08080;
-        }
-        button[type="submit"]:hover {
             background-color: #F08080;
         }
 
         .error {
             color: red;
-            margin-top: 10px
+            margin-top: 10px;
         }
     </style>
 
@@ -118,11 +107,10 @@ if (isset($_POST["login"])) {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
         </li>
+        <li style="list-style:none;">
+            <button type="submit" name="login">Login</button>
+        </li>
         </ul>
-        </form>
-        <br>
-        <form method="GET" action="dashboard.php">
-            <input type="submit" value="Login">
         </form>
         <br>
         <form method="GET" action="dashboard.php">
