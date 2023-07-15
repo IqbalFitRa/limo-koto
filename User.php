@@ -1,6 +1,16 @@
 <?php
 
-mysqli_connect("localhost", "root", "", "limokoto")
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'limokoto';
+
+$conn = new mysqli($host, $username, $password, $database);
+
+
+if (!$conn) {
+    die("Koneksi database gagal: " . $conn->connect_error);
+}
 ?>
 
 <!doctype html>
@@ -52,35 +62,110 @@ mysqli_connect("localhost", "root", "", "limokoto")
     ?>
 
 <div class="container">
-    <form action="surat.php" method="post">
+    <form action="Print.php" method="post">
         <div class="mb-3">
-            <label for="namaUser" 
-            class="form-label">Nama :</label>
+            <label for="nama" 
+            class="form-label">Nama(wajib) :</label>
             <input type="text" 
             class="form-control" 
-            id="namaUser" 
-            name="namaUser" 
+            id="nama" 
+            name="nama" 
             placeholder="Input Nama" 
-            autocomplete="off">
+            autocomplete="off"
+            required>
         </div>
         <div class="mb-3">
-            <label for="nipUser" 
-            class="form-label">NIP :</label>
-            <input type="number" 
-            class="form-control" 
-            id="nipUser" 
-            name="nipUser" 
-            placeholder="Input NIP" 
-            autocomplete="off">
-        </div>
-        <div class="mb-3">
-            <label for="alasanUser" 
-            class="form-label">Alasan :</label>
+            <label for="tempat_lahir" 
+            class="form-label">Tempat Lahir(wajib) :</label>
             <input type="text" 
             class="form-control" 
-            id="alasanUser" 
-            name="alasanUser" 
-            placeholder="Input Alasan" autocomplete="off">
+            id="tempat_lahir" 
+            name="tempat_lahir" 
+            placeholder="Input Tempat Lahir" 
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+            <label for="tanggal_lahir" 
+            class="form-label">Tanggal Lahir(wajib) :</label>
+            <input type="text" 
+            class="form-control" 
+            id="tanggal_lahir" 
+            name="tanggal_lahir" 
+            placeholder="Input tanggal Lahir" 
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+            <label for="jenis_kelamin" 
+            class="form-label">Jenis Kelamin(wajib) :</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Pria
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Wanita
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="agama" 
+            class="form-label">Agama(wajib) :</label>
+            <input type="text" 
+            class="form-control" 
+            id="agama" 
+            name="agama" 
+            placeholder="Input agama" 
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+            <label for="pekerjaan" 
+            class="form-label">Pekerjaan(wajib) :</label>
+            <input type="text" 
+            class="form-control" 
+            id="pekerjaan" 
+            name="pekerjaan" 
+            placeholder="Input pekerjaan" 
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+            <label for="pbb" 
+            class="form-label">PBB(wajib) :</label>
+            <div class="form-check">
+                <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault3" checked>
+                <label class="form-check-label2" for="flexRadioDefault3">
+                    Sudah Bayar
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault4">
+                <label class="form-check-label2" for="flexRadioDefault4">
+                    Belum Bayar
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault5">
+                <label class="form-check-label2" for="flexRadioDefault5">
+                    Bebas Pajak
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Alasan" 
+            class="form-label">Alasan(wajib) :</label>
+            <input type="text" 
+            class="form-control" 
+            id="Alasan" 
+            name="Alasan" 
+            placeholder="Input Alasan" 
+            autocomplete="off"
+            required>
         </div>
         <div>
             <button type="submit" class="button">Submit</button> | <a href="Print.php" target="_blank">print</a>

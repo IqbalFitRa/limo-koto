@@ -17,11 +17,11 @@ $html = '
     <pre style ="font-family:Times New Roman;padding-left: 50px; padding-bottom: 0px;" >Jabatan                                  : <strong>KEPALA JORONG KOTO PANJANG</strong></pre>
     <pre style ="font-family:Times New Roman;padding-bottom: 0px;" >Dengan ini menerangkan bahwa	 :</pre>
     <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Nama                                     : $nama</pre>
-    <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Tempat / Tgl.Lahir                 : $tmpt/tnggllhr</pre>
+    <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Tempat  Lahir                        : $tmptlhr</pre>
+    <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Tanggal Lahir                        : $tnggllhr</pre>
     <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Jenis Kelamin                         : $gender</pre>
     <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Agama                                    : $agama</pre>
     <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Pekerjaan                               : $job</pre>
-    <pre style ="font-family:Times New Roman;padding-bottom: -10px; padding-left: 50px;" >Nip                                         : $nip</pre>
     <pre style ="font-family:Times New Roman;padding-bottom: 0px; padding-left: 50px;" >PBB                                        : $alasan</pre>
     
 

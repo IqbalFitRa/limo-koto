@@ -1,3 +1,17 @@
+<?php
+
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'limokoto';
+
+$conn = new mysqli($host, $username, $password, $database);
+
+
+if (!$conn) {
+    die("Koneksi database gagal: " . $conn->connect_error);
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -15,7 +29,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Web Permohonan Surat Nagari Limo Koto</a>
+      <a class="navbar-brand" href="#">Web Permohonan Surat Rekomendasi Nagari Limo Koto</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,7 +43,7 @@
     </div>
   </nav>
   <div class="container">
-    <h1>Form Pengisian Surat</h1>
+    <h1>Form Pengisian Surat Rekomendasi</h1>
     <!-- Tampilkan form user.php di dalam dashboard -->
     <?php
     // Cek apakah ada data yang dikirimkan melalui metode POST
@@ -45,7 +59,7 @@
       echo "<p>NIP: $nipUser</p>";
       echo "<p>Alasan: $alasanUser</p>";
     } else {
-      include('user.php');
+      include('User.php');
     }
     ?>
   </div>
