@@ -78,13 +78,26 @@ if (isset($_POST["login"])) {
             border-radius: 3px;
             cursor: pointer;
         }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #BC8F8F;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #F08080;
+        }
+
         input[type="submit"]:hover {
             background-color: #F08080;
         }
 
         .error {
             color: red;
-            margin-top: 10px;
+            margin-top: 10px
         }
     </style>
 
@@ -106,11 +119,8 @@ if (isset($_POST["login"])) {
         <li style="list-style:none;">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
-        </li>
-        <li style="list-style:none;">
-            <button type="submit" name="login">Login</button>
-        </li>
         </ul>
+        <button type="submit" name="login">Login</button>
         </form>
         <br>
         <form method="GET" action="dashboard.php">
